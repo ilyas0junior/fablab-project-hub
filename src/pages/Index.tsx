@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Tool, BookOpen, Calendar } from "lucide-react";
+import { ArrowRight, Wrench, BookOpen, Calendar } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -69,7 +69,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-md text-center">
                 <div className="h-14 w-14 bg-fablab-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Tool className="h-7 w-7 text-fablab-primary" />
+                  <Wrench className="h-7 w-7 text-fablab-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Equipment Access</h3>
                 <p className="text-gray-600">

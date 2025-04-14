@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -20,11 +19,13 @@ const reservationSchema = z.object({
   firstName: z.string().min(2, { message: "First name must be at least 2 characters." }),
   lastName: z.string().min(2, { message: "Last name must be at least 2 characters." }),
   studentId: z.string().min(5, { message: "Student ID must be at least 5 characters." }),
-  email: z.string().email({ message: "Please enter a valid school email." }).endsWith(".edu", { message: "Please use your school email (.edu)." }),
+  email: z.string().email({ message: "Please enter a valid school email." })
+    .endsWith("@e-polytechnique.ma", { message: "Please use your school email (@e-polytechnique.ma)." }),
   materialId: z.string({ required_error: "Please select a material to use." }),
   reservationDate: z.date({ required_error: "Please select a reservation date." }),
   projectName: z.string().min(3, { message: "Project name must be at least 3 characters." }),
-  description: z.string().min(20, { message: "Description must be at least 20 characters." }).max(500, { message: "Description must not exceed 500 characters." }),
+  description: z.string().min(20, { message: "Description must be at least 20 characters." })
+    .max(500, { message: "Description must not exceed 500 characters." }),
 });
 
 type ReservationFormValues = z.infer<typeof reservationSchema>;
@@ -130,10 +131,10 @@ const ReservationForm: React.FC = () => {
               <FormItem>
                 <FormLabel>School Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="john.doe@university.edu" {...field} />
+                  <Input placeholder="john.doe@e-polytechnique.ma" {...field} />
                 </FormControl>
                 <FormDescription>
-                  Please use your school email address ending with .edu
+                  Please use your school email address ending with @e-polytechnique.ma
                 </FormDescription>
                 <FormMessage />
               </FormItem>
